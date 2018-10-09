@@ -38,6 +38,6 @@ to
     }
 
 ```
-the the application boots without any issue.
+the application boots without any issue.
 
 Why is that?
