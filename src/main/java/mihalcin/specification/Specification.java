@@ -3,10 +3,7 @@ package mihalcin.specification;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-import lombok.RequiredArgsConstructor;
-
 @Entity
-@RequiredArgsConstructor
 public class Specification {
 
     @Id
@@ -14,4 +11,7 @@ public class Specification {
 
     private final String name;
 
+    public Specification(String name) {
+        this.name = name;
+    }
 }

@@ -4,7 +4,6 @@ package mihalcin;
 import static com.github.benmanes.caffeine.cache.Caffeine.newBuilder;
 
 import com.github.benmanes.caffeine.cache.LoadingCache;
-import lombok.RequiredArgsConstructor;
 import mihalcin.specification.Specification;
 import mihalcin.specification.SpecificationRepository;
 import org.springframework.cache.Cache;
@@ -15,10 +14,13 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @EnableCaching
-@RequiredArgsConstructor
 public class CacheConfig {
 
     private final SpecificationRepository specificationRepository;
+
+    public CacheConfig(SpecificationRepository specificationRepository) {
+        this.specificationRepository = specificationRepository;
+    }
 
     @SuppressWarnings("unchecked")
     @Bean
@@ -32,5 +34,6 @@ public class CacheConfig {
 
     private Specification loader(Long specificationId) {
         return specificationRepository.findById(specificationId).get();
+//        return specificationRepository.findOne(specificationId);
     }
 }
